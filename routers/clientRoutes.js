@@ -1,25 +1,26 @@
 const express = require('express')
 const router = express.Router()
 const clientController = require('../controllers/clientController')
+const { authenticatedOnly } = require('../middlewares/auth-middleware')
 
-router.get('/', clientController.index)
+// router.get('/', clientController.index)
 
 // // new (display form)
-router.get('/newclient', clientController.newClientForm)
+router.get('/newclient', authenticatedOnly, clientController.newClientForm)
 
 // // show
-router.get('/:slug', clientController.getClient)
+router.get('/:slug', authenticatedOnly, clientController.getClient)
 
 // create route
-router.post('/', clientController.newClient)
+router.post('/', authenticatedOnly, clientController.newClient)
 
 // update
-router.get('/:slug/editclient', clientController.editClient)
+router.get('/:slug/editclient', authenticatedOnly, clientController.editClient)
 
 // update
-router.patch('/:slug', clientController.update)
+router.patch('/:slug', authenticatedOnly, clientController.update)
 
 // delete
-router.delete('/:slug', clientController.delete)
+router.delete('/:slug', authenticatedOnly, clientController.delete)
 
 module.exports = router

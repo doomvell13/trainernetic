@@ -18,6 +18,10 @@ const clientSchema = new mongoose.Schema({
   nextofkin: { type: String },
   nokcontact: { type: String },
   status: { type: String, enum: ['Active', 'Inactive'] },
+  user: {
+    type: mongoose.Schema.Types.ObjectId,
+    ref: 'User',
+  },
 })
 
 const ClientModel = mongoose.model('Client', clientSchema)

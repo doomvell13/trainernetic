@@ -53,6 +53,7 @@ module.exports = {
       nokcontact: req.body.nokcontact,
       slug: slug,
       status: req.body.status,
+      userid: req.user,
     })
       .then((createClient) => {
         res.redirect('/clients/' + slug)
