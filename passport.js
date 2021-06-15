@@ -1,7 +1,6 @@
-const passport = require('passport')
 const GoogleStrategy = require('passport-google-oauth20').Strategy
 const mongoose = require('mongoose')
-const User = require('../models/users')
+const User = require('./models/users')
 
 module.exports = function (passport) {
   passport.use(
