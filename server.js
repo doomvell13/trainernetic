@@ -7,7 +7,10 @@ const bodyParser = require('body-parser')
 const mongoose = require('mongoose')
 const session = require('express-session')
 const clientRouter = require('./routers/clientRoutes')
+// const indexRouter = require('./routers/indexRoutes')
 const app = express()
+const passport = require('passport')
+const flash = require('connect-flash')
 
 app.use(express.static(path.join(__dirname, 'public')))
 app.use(
@@ -18,7 +21,6 @@ app.use(
 app.set('view engine', 'ejs')
 const mongo_URI = `mongodb+srv://${process.env.DB_USER}:${process.env.DB_PASS}@${process.env.DB_HOST}/${process.env.DB_NAME}`
 app.use(methodOverride('_method'))
-
 app.use(express.json())
 app.use(express.urlencoded({ extended: true }))
 app.use(methodOverride('_method'))
@@ -26,8 +28,8 @@ app.use(methodOverride('_method'))
 mongoose.set('useNewUrlParser', true)
 mongoose.set('useFindAndModify', false)
 mongoose.set('useCreateIndex', true)
-
 app.use('/clients', clientRouter)
+// app.use('/login', indexRouter)
 
 mongoose
   .connect(mongo_URI, { useNewUrlParser: true, useUnifiedTopology: true })
