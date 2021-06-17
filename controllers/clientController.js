@@ -38,7 +38,7 @@ module.exports = {
       })
   },
 
-  newClient: async (req, res) => {
+  newClient: (req, res) => {
     let firstname = req.body.first_name.toLowerCase()
     let lastname = req.body.last_name.toLowerCase()
     let clientname = _.concat(firstname, lastname)
