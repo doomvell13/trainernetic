@@ -14,6 +14,8 @@ const clientRouter = require('./routers/clientRoutes')
 const indexRouter = require('./routers/indexRoutes')
 const User = require('./models/users')
 const app = express()
+const port = process.env.PORT || 3000
+
 const GoogleStrategy = require('passport-google-oauth20').Strategy
 const LocalStrategy = require('passport-local').Strategy
 app.use(cors())
@@ -64,7 +66,7 @@ mongoose
     // Database connected successfully
     console.log('Database connection successful')
 
-    app.listen(3000, function () {
-      console.log('connected')
+    app.listen(port, () => {
+      console.log(`Biscoff Bakery app listening on port: ${port}`)
     })
   })

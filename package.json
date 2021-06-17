@@ -27,12 +27,16 @@
     "passport-local": "^1.0.0",
     "uuid": "^8.3.2"
   },
+  "engines": {
+    "node": "14.x"
+  },
   "name": "trainernetic",
-  "version": "1.0.0",
+  "version": "15.11.0",
   "main": "index.js",
   "devDependencies": {},
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
   },
   "author": "",
   "license": "ISC",
