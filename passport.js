@@ -1,9 +1,13 @@
+const passport = require('passport')
 const GoogleStrategy = require('passport-google-oauth20').Strategy
+const LocalStrategy = require('passport-local').Strategy
 const mongoose = require('mongoose')
 const User = require('./models/users')
+const bcrypt = require('bcryptjs')
 
 module.exports = function (passport) {
   passport.use(
+    'google',
     new GoogleStrategy(
       {
         clientID: process.env.GOOGLE_CLIENT_ID,
@@ -34,6 +38,38 @@ module.exports = function (passport) {
       }
     )
   )
+  // passport.use(
+  //   'local',
+  //   new LocalStrategy(
+  //     {
+  //       usernameField: 'email',
+  //       passwordField: 'password',
+  //       passReqToCallback: true,
+  //     },
+  //     (email, password, done) => {
+  //       // Match user
+  //       User.findOne({
+  //         'local.email': email,
+  //       }).then((user) => {
+  //         if (!user) {
+  //           return done(null, false, {
+  //             message: 'That email is not registered',
+  //           })
+  //         }
+
+  //         // Match password
+  //         bcrypt.compare(password, user.password, (err, isMatch) => {
+  //           if (err) throw err
+  //           if (isMatch) {
+  //             return done(null, user)
+  //           } else {
+  //             return done(null, false, { message: 'Password incorrect' })
+  //           }
+  //         })
+  //       })
+  //     }
+  //   )
+  // )
 
   passport.serializeUser((user, done) => {
     done(null, user.id)

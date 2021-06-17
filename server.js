@@ -8,14 +8,14 @@ const bodyParser = require('body-parser')
 const mongoose = require('mongoose')
 const passport = require('passport')
 require('./passport.js')(passport)
-
+const flash = require('connect-flash')
 const session = require('express-session')
 const clientRouter = require('./routers/clientRoutes')
 const indexRouter = require('./routers/indexRoutes')
 const User = require('./models/users')
 const app = express()
 const GoogleStrategy = require('passport-google-oauth20').Strategy
-
+const LocalStrategy = require('passport-local').Strategy
 app.use(cors())
 app.use(express.static(path.join(__dirname, 'public')))
 app.use(
@@ -42,6 +42,15 @@ app.use(bodyParser.json())
 
 app.use(passport.initialize())
 app.use(passport.session())
+app.use(flash())
+
+app.use(function (req, res, next) {
+  res.locals.success_msg = req.flash('success_msg')
+  res.locals.error_msg = req.flash('error_msg')
+  res.locals.error = req.flash('error')
+  next()
+})
+
 mongoose.set('useNewUrlParser', true)
 mongoose.set('useFindAndModify', false)
 mongoose.set('useCreateIndex', true)

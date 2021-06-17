@@ -15,12 +15,12 @@
           <div class="container-fluid">
             <div class="row mb-2">
               <div class="col-sm-6">
-                <h1>Project Detail</h1>
+                <h1>Client Details</h1>
               </div>
               <div class="col-sm-6">
                 <ol class="breadcrumb float-sm-right">
                   <li class="breadcrumb-item"><a href="#">Home</a></li>
-                  <li class="breadcrumb-item active">Project Detail</li>
+                  <li class="breadcrumb-item active">Client Details</li>
                 </ol>
               </div>
             </div>
@@ -33,7 +33,8 @@
           <!-- Default box -->
           <div class="card">
             <div class="card-header">
-              <h3 class="card-title">Projects Detail</h3>
+              <h3 class="card-title">Client Profile</h3>
+              <%- include ('../partials/messages') %>
 
               <div class="card-tools">
                 <button
@@ -86,27 +87,45 @@
                     <div class="card-footer p-0">
                       <ul class="nav flex-column">
                         <li class="nav-item">
+                          <a href="#" class="nav-link"
+                            >Address
+
+                            <span class="float-right"
+                              ><%= clients.address %></span
+                            ></a
+                          >
+                        </li>
+                        <li class="nav-item">
                           <a href="#" class="nav-link">
-                            Projects
-                            <span class="float-right badge bg-primary">31</span>
+                            Emergency Name
+                            <span class="float-right bg-purple"
+                              ><%= clients.nextofkin %></span
+                            >
                           </a>
                         </li>
                         <li class="nav-item">
                           <a href="#" class="nav-link">
-                            Tasks
-                            <span class="float-right badge bg-info">5</span>
+                            Emergency Contact
+                            <span class="float-right bg-success"
+                              ><%= clients.nokcontact %></span
+                            >
                           </a>
                         </li>
                         <li class="nav-item">
                           <a href="#" class="nav-link">
-                            Completed Projects
-                            <span class="float-right badge bg-success">12</span>
+                            Client's Email
+                            <span class="float-right bg-danger"
+                              ><%= clients.email %></span
+                            >
                           </a>
                         </li>
                         <li class="nav-item">
                           <a href="#" class="nav-link">
-                            Followers
-                            <span class="float-right badge bg-danger">842</span>
+                            Client Date Of Birth
+                            <span class="float-right bg-danger"
+                              ><%= helper.formatDate("clients.dateofbirth")
+                              %></span
+                            >
                           </a>
                         </li>
                       </ul>
@@ -114,60 +133,15 @@
                   </div>
 
                   <p class="text-muted">
-                    Raw denim you probably haven't heard of them jean shorts
-                    Austin. Nesciunt tofu stumptown aliqua butcher retro
-                    keffiyeh dreamcatcher synth. Cosby sweater eu banh mi, qui
-                    irure terr.
+                    Goal setting can be overwhelming for clients, but after
+                    setting their objectives and S.M.A.R.T goals, it’s easier to
+                    develop a better sense of personal satisfaction. Setting,
+                    then finally actually reaching those goals drives clients to
+                    feel like they are capable of getting to all of their goals
+                    they had set. Long-term or short-term, this will give your
+                    clients a better sense of confidence and self-efficacy.
                   </p>
                   <br />
-                  <div class="text-muted">
-                    <p class="text-sm">
-                      <%= clients.gender %>
-                      <b class="d-block">Deveint Inc</b>
-                    </p>
-                    <p class="text-sm">
-                      Project Leader
-                      <b class="d-block">Tony Chicken</b>
-                    </p>
-                  </div>
-
-                  <h5 class="mt-5 text-muted">Project files</h5>
-                  <ul class="list-unstyled">
-                    <li>
-                      <a href="" class="btn-link text-secondary"
-                        ><i class="far fa-fw fa-file-word"></i>
-                        Functional-requirements.docx</a
-                      >
-                    </li>
-                    <li>
-                      <a href="" class="btn-link text-secondary"
-                        ><i class="far fa-fw fa-file-pdf"></i> UAT.pdf</a
-                      >
-                    </li>
-                    <li>
-                      <a href="" class="btn-link text-secondary"
-                        ><i class="far fa-fw fa-envelope"></i>
-                        Email-from-flatbal.mln</a
-                      >
-                    </li>
-                    <li>
-                      <a href="" class="btn-link text-secondary"
-                        ><i class="far fa-fw fa-image"></i> Logo.png</a
-                      >
-                    </li>
-                    <li>
-                      <a href="" class="btn-link text-secondary"
-                        ><i class="far fa-fw fa-file-word"></i>
-                        Contract-10_12_2014.docx</a
-                      >
-                    </li>
-                  </ul>
-                  <div class="text-center mt-5 mb-3">
-                    <a href="#" class="btn btn-sm btn-primary">Add files</a>
-                    <a href="#" class="btn btn-sm btn-warning"
-                      >Report contact</a
-                    >
-                  </div>
                 </div>
                 <div class="col-12 col-md-12 col-lg-8 order-2 order-md-2">
                   <div class="row">
@@ -175,11 +149,11 @@
                       <div class="info-box bg-light">
                         <div class="info-box-content">
                           <span class="info-box-text text-center text-muted"
-                            >Estimated budget</span
+                            >Rates</span
                           >
                           <span
                             class="info-box-number text-center text-muted mb-0"
-                            >2300</span
+                            >100</span
                           >
                         </div>
                       </div>
@@ -188,11 +162,11 @@
                       <div class="info-box bg-light">
                         <div class="info-box-content">
                           <span class="info-box-text text-center text-muted"
-                            >Total amount spent</span
+                            >Total sessions used</span
                           >
                           <span
                             class="info-box-number text-center text-muted mb-0"
-                            >2000</span
+                            >250</span
                           >
                         </div>
                       </div>
@@ -201,7 +175,7 @@
                       <div class="info-box bg-light">
                         <div class="info-box-content">
                           <span class="info-box-text text-center text-muted"
-                            >Estimated project duration</span
+                            >Session Balance</span
                           >
                           <span
                             class="info-box-number text-center text-muted mb-0"
@@ -216,84 +190,44 @@
                       <h4>Recent Activity</h4>
                       <div class="post">
                         <div class="user-block">
-                          <img
-                            class="img-circle img-bordered-sm"
-                            src="../../dist/img/user1-128x128.jpg"
-                            alt="user image"
-                          />
                           <span class="username">
-                            <a href="#">Jonathan Burke Jr.</a>
+                            <a href="#">Trainer A</a>
                           </span>
-                          <span class="description"
-                            >Shared publicly - 7:45 PM today</span
-                          >
+                          <span class="description">7:45 PM today</span>
                         </div>
                         <!-- /.user-block -->
                         <p>
-                          Lorem ipsum represents a long-held tradition for
-                          designers, typographers and the like. Some people hate
-                          it and argue for its demise, but others ignore.
-                        </p>
-
-                        <p>
-                          <a href="#" class="link-black text-sm"
-                            ><i class="fas fa-link mr-1"></i> Demo File 1 v2</a
-                          >
+                          Had a great HITT session today. Client able to push to
+                          90% of MHR.
                         </p>
                       </div>
 
                       <div class="post clearfix">
                         <div class="user-block">
-                          <img
-                            class="img-circle img-bordered-sm"
-                            src="../../dist/img/user7-128x128.jpg"
-                            alt="User Image"
-                          />
                           <span class="username">
-                            <a href="#">Sarah Ross</a>
+                            <a href="#">Trainer A</a>
                           </span>
-                          <span class="description"
-                            >Sent you a message - 3 days ago</span
-                          >
+                          <span class="description">3 days ago</span>
                         </div>
                         <!-- /.user-block -->
                         <p>
-                          Lorem ipsum represents a long-held tradition for
-                          designers, typographers and the like. Some people hate
-                          it and argue for its demise, but others ignore.
-                        </p>
-                        <p>
-                          <a href="#" class="link-black text-sm"
-                            ><i class="fas fa-link mr-1"></i> Demo File 2</a
-                          >
+                          Client did not have a good sleep. Only 5hrs. Cut back
+                          on intensity and work on mobility more.
                         </p>
                       </div>
 
                       <div class="post">
                         <div class="user-block">
-                          <img
-                            class="img-circle img-bordered-sm"
-                            src="../../dist/img/user1-128x128.jpg"
-                            alt="user image"
-                          />
                           <span class="username">
-                            <a href="#">Jonathan Burke Jr.</a>
+                            <a href="#">Trainer A</a>
                           </span>
-                          <span class="description"
-                            >Shared publicly - 5 days ago</span
-                          >
+                          <span class="description">5 days ago</span>
                         </div>
                         <!-- /.user-block -->
                         <p>
-                          Lorem ipsum represents a long-held tradition for
-                          designers, typographers and the like. Some people hate
-                          it and argue for its demise, but others ignore.
-                        </p>
-
-                        <p>
-                          <a href="#" class="link-black text-sm"
-                            ><i class="fas fa-link mr-1"></i> Demo File 1 v1</a
-                          >
+                          Client had a long day at work with a lot of sitting.
+                          Work on stretches to relief hip and lower back
+                          tightness.
                         </p>
                       </div>
                     </div>

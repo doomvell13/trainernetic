@@ -15,7 +15,7 @@
           <div class="container-fluid">
             <div class="row mb-2">
               <div class="col-sm-6">
-                <h1>Contacts</h1>
+                <h1>All Clients</h1>
               </div>
               <div class="col-sm-6">
                 <ol class="breadcrumb float-sm-right">
@@ -23,6 +23,7 @@
                   <li class="breadcrumb-item active">Contacts</li>
                 </ol>
               </div>
+              <%- include ('../partials/messages') %>
             </div>
           </div>
           <!-- /.container-fluid -->
@@ -34,6 +35,7 @@
           <div class="card card-solid">
             <div class="card-body pb-0">
               <div class="row">
+      
                 <% if (clients.length !== 0) { %> <% clients.forEach((element,
                 index) => { %>
                 <div
@@ -45,9 +47,7 @@
                   "
                 >
                   <div class="card bg-light d-flex flex-fill">
-                    <div class="card-header text-muted border-bottom-0">
-                      Digital Strategist
-                    </div>
+                    <div class="card-header text-muted border-bottom-0"></div>
                     <div class="card-body pt-0">
                       <div class="row">
                         <div class="col-7">
@@ -74,26 +74,27 @@
                             </li>
                           </ul>
                         </div>
-                        <div class="col-5 text-center">
-                          <img
-                            src="<%= element.photo %>"
-                            alt="user-avatar"
-                            class="img-circle img-fluid"
-                          />
-                        </div>
                       </div>
                     </div>
                     <div class="card-footer">
                       <div class="text-right">
-                        <a href="#" class="btn btn-sm bg-teal">
-                          <i class="fas fa-comments"></i>
-                        </a>
-                        <a href="#" class="btn btn-sm btn-primary">
+                        
+            
+                        <a
+                          href="/clients/<%= element.slug %>"
+                          class="btn btn-lg btn-primary"
+                        >
                           <i class="fas fa-user"></i>
-                          <a href="/clients/<%= element.slug %>" class="btn"
-                            >Details</a
-                          >
                         </a>
+                        <a
+                          href="/clients/<%= element.slug %>/editclient"
+                          class="btn btn-lg btn-warning"
+                        >
+                          <i class="fas fa-edit"></i>
+                        </a>
+                        <form method="post" action="/clients/<%= element.slug %>?_method=DELETE" class="btn bg-danger">
+              <button type="submit" class="btn btn-sm btn-danger">Delete</a>
+            </form>
                       </div>
                     </div>
                   </div>
@@ -111,13 +112,7 @@
                   <li class="page-item active">
                     <a class="page-link" href="#">1</a>
                   </li>
-                  <li class="page-item"><a class="page-link" href="#">2</a></li>
-                  <li class="page-item"><a class="page-link" href="#">3</a></li>
-                  <li class="page-item"><a class="page-link" href="#">4</a></li>
-                  <li class="page-item"><a class="page-link" href="#">5</a></li>
-                  <li class="page-item"><a class="page-link" href="#">6</a></li>
-                  <li class="page-item"><a class="page-link" href="#">7</a></li>
-                  <li class="page-item"><a class="page-link" href="#">8</a></li>
+              
                 </ul>
               </nav>
             </div>

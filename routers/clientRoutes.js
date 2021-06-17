@@ -3,7 +3,7 @@ const router = express.Router()
 const clientController = require('../controllers/clientController')
 const { authenticatedOnly } = require('../middlewares/auth-middleware')
 
-// router.get('/', clientController.index)
+router.get('/', clientController.index)
 
 // // new (display form)
 router.get('/newclient', authenticatedOnly, clientController.newClientForm)

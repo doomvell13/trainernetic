@@ -1,4 +1,5 @@
 const _ = require('lodash')
+const moment = require('moment')
 const { ClientModel } = require('../models/clients')
 
 module.exports = {
@@ -23,8 +24,10 @@ module.exports = {
   getClient: (req, res, next) => {
     let slug = req.params.slug
     ClientModel.findOne({ slug: req.params.slug })
+
       .then((clients) => {
         res.render('clients/showclient', {
+          helper: require('../helpers/helper'),
           clients: clients,
           pageTitle: 'Client Profile',
           path: '/clients',
@@ -35,18 +38,19 @@ module.exports = {
       })
   },
 
-  newClient: (req, res) => {
+  newClient: async (req, res) => {
     let firstname = req.body.first_name.toLowerCase()
     let lastname = req.body.last_name.toLowerCase()
     let clientname = _.concat(firstname, lastname)
     const slug = _.kebabCase(clientname)
+    const formatDOB = moment(req.body.dateofbirth).format('DD-MM-YYYY')
 
     ClientModel.create({
       first_name: req.body.first_name,
       last_name: req.body.last_name,
       gender: req.body.gender,
       contact: req.body.contact,
-      dateofbirth: req.body.dateofbirth,
+      dateofbirth: formatDOB,
       address: req.body.address,
       email: req.body.email,
       nextofkin: req.body.nextofkin,
@@ -56,6 +60,7 @@ module.exports = {
       userid: req.user,
     })
       .then((createClient) => {
+        req.flash('success_msg', 'Success! Client profile is created.')
         res.redirect('/clients/' + slug)
       })
       .catch((err) => {
@@ -102,6 +107,7 @@ module.exports = {
       }
     )
       .then((response) => {
+        req.flash('success_msg', 'Client profile successfully updated.')
         res.redirect('/clients/' + newSlug)
       })
       .catch((err) => {
@@ -115,6 +121,7 @@ module.exports = {
       slug: req.params.slug,
     })
       .then((deleteClient) => {
+        req.flash('success_msg', 'Client profile is deleted.')
         res.redirect('/clients')
       })
       .catch((err) => {

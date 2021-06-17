@@ -1,12 +1,12 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <%- include('../partials/header') %>
+    <%- include('./partials/header') %>
   </head>
   <body class="hold-transition sidebar-mini">
     <!-- Site wrapper -->
     <div class="wrapper">
-      <%- include('../partials/navbar') %> <%- include('../partials/sidebar') %>
+      <%- include('./partials/navbar') %> <%- include('./partials/sidebar') %>
 
       <!-- Content Wrapper. Contains page content -->
       <div class="content-wrapper">
@@ -15,12 +15,12 @@
           <div class="container-fluid">
             <div class="row mb-2">
               <div class="col-sm-6">
-                <h1>Client Profile/h1>
+                <h1>Blank Page</h1>
               </div>
               <div class="col-sm-6">
                 <ol class="breadcrumb float-sm-right">
                   <li class="breadcrumb-item"><a href="#">Home</a></li>
-                  <li class="breadcrumb-item active">Client Profile</li>
+                  <li class="breadcrumb-item active">Blank Page</li>
                 </ol>
               </div>
             </div>
@@ -33,7 +33,7 @@
           <!-- Default box -->
           <div class="card">
             <div class="card-header">
-              <h3 class="card-title"> <%- include ('../partials/messages') %></h3>
+              <h3 class="card-title">Title</h3>
 
               <div class="card-tools">
                 <button
@@ -68,14 +68,14 @@
                   <div class="card-body">
                     <div class="col-sm-6">
                       <div class="form-group">
-                        <label>First Name</label>
+                        <label>Name</label>
                         <input
                           type="text"
                           class="form-control"
-                          placeholder="Enter your first name"
+                          placeholder="Enter your name"
                           id="first_name"
                           name="first_name"
-                          value="<%= clients.first_name %>"
+                          value="<%= user.local.name %>"
                         />
                       </div>
                     </div>
@@ -85,10 +85,10 @@
                         <input
                           type="text"
                           class="form-control"
-                          placeholder="Enter your last name"
+                          placeholder="Enter your specialization"
                           id="last_name"
                           name="last_name"
-                          value="<%= clients.last_name %>"
+                          value="<%= users.local.specialization%>"
                         />
                       </div>
                     </div>
@@ -100,7 +100,7 @@
                           class="form-control"
                           id="gender"
                           name="gender"
-                          value="<%= clients.gender%>"
+                          value="<%= users.gender%>"
                         >
                           <option>Male</option>
                           <option>Female</option>
@@ -114,7 +114,7 @@
                         class="form-control"
                         id="email"
                         name="email"
-                        value="<%= clients.email %>"
+                        value="<%= user.local.email %>"
                       />
                     </div>
                     <div class="col-sm-6">
@@ -125,7 +125,7 @@
                           class="form-control"
                           id="contact"
                           name="contact"
-                          value="<%= clients.contact %>"
+                          value="<%= user.local.phone %>"
                         />
                       </div>
                     </div>
@@ -184,20 +184,6 @@
                           id="nokcontact"
                           name="nokcontact"
                           value="<%= clients.nokcontact %>"
-                        />
-                      </div>
-                    </div>
-
-                    <div class="col-sm-6">
-                      <div class="form-group">
-                        <label>Status</label>
-                        <input
-                          type="checkbox"
-                          checked
-                          data-bootstrap-switch
-                          id="status"
-                          name="status"
-                          value="<%= clients.status %>"
                         />
                       </div>
                     </div>
