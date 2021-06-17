@@ -67,6 +67,6 @@ mongoose
     console.log('Database connection successful')
 
     app.listen(port, () => {
-      console.log(`Biscoff Bakery app listening on port: ${port}`)
+      console.log(`Trainernetic app listening on port: ${port}`)
     })
   })
