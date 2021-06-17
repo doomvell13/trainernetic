@@ -28,7 +28,7 @@
     "uuid": "^8.3.2"
   },
   "engines": {
-    "node": "14.x"
+    "node": "15.11.0"
   },
   "name": "trainernetic",
   "version": "15.11.0",
