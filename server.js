@@ -14,7 +14,7 @@ const clientRouter = require('./routers/clientRoutes')
 const indexRouter = require('./routers/indexRoutes')
 const User = require('./models/users')
 const app = express()
-const port = process.env.PORT || 8000
+const port = process.env.PORT || 3000
 
 const GoogleStrategy = require('passport-google-oauth20').Strategy
 const LocalStrategy = require('passport-local').Strategy
