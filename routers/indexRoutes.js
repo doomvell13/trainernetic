@@ -40,16 +40,15 @@ router.get('/logout', (req, res) => {
   res.redirect('/')
 })
 
-router.get('/dashboard', authenticatedOnly, (req, res) => {
+router.get('/dashboard', authenticatedOnly, async (req, res) => {
   try {
-    const users = UserModel.find({ user: req.user.id })
+    const users = await UserModel.find({ user: req.user.id })
     res.render('dashboard', {
       name: req.user.firstName,
       users,
     })
   } catch (err) {
     console.error(err)
-    res.render('error/500')
   }
 })
 
