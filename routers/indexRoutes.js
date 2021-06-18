@@ -43,10 +43,9 @@ router.get('/logout', (req, res) => {
 router.get('/dashboard', authenticatedOnly, async (req, res) => {
   try {
     const users = await UserModel.find({ user: req.user.id })
-    const clients = await ClientModel.find()
     res.render('dashboard', {
-      name: req.user.displayName,
-      clients: clients,
+      name: req.user.firstName,
+      users,
     })
   } catch (err) {
     console.error(err)
