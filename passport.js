@@ -7,7 +7,6 @@ const bcrypt = require('bcryptjs')
 
 module.exports = function (passport) {
   passport.use(
-    'google',
     new GoogleStrategy(
       {
         clientID: process.env.GOOGLE_CLIENT_ID,

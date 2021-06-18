@@ -1,9 +1,6 @@
 const express = require('express')
 const router = express.Router()
 const passport = require('passport')
-const bcrypt = require('bcryptjs')
-const moment = require('moment')
-const saltRounds = 10
 
 const {
   authenticatedOnly,
