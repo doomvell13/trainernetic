@@ -40,9 +40,9 @@ router.get('/logout', (req, res) => {
   res.redirect('/')
 })
 
-router.get('/dashboard', authenticatedOnly, async (req, res) => {
+router.get('/dashboard', authenticatedOnly, (req, res) => {
   try {
-    const users = await UserModel.find({ user: req.user.id })
+    const users = UserModel.find({ user: req.user.id })
     res.render('dashboard', {
       name: req.user.firstName,
       users,
