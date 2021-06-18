@@ -3,7 +3,6 @@ const path = require('path')
 const express = require('express')
 const router = express.Router()
 const methodOverride = require('method-override')
-const cors = require('cors')
 const bodyParser = require('body-parser')
 const mongoose = require('mongoose')
 const passport = require('passport')
@@ -13,12 +12,10 @@ const session = require('express-session')
 const clientRouter = require('./routers/clientRoutes')
 const indexRouter = require('./routers/indexRoutes')
 const User = require('./models/users')
-const PORT = process.env.PORT || '3000'
+const port = process.env.PORT || '3000'
 const app = express()
 
 const GoogleStrategy = require('passport-google-oauth20').Strategy
-const LocalStrategy = require('passport-local').Strategy
-app.use(cors())
 app.use(express.static(path.join(__dirname, 'public')))
 app.use(
   '/script-adminlte',
